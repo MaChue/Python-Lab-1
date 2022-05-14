@@ -16,7 +16,13 @@ for r in result:
   print(r.get_fullname())
 print("........................")
 
-data.delete_person(1)
+#data.delete_person(1)
+#for person in data.persons:
+#  print(person.get_fullname())
+#print("........................")
+
+updated_person = data.Person("Zilly", "Smith", 659603433, "susansmith@gmail.com", "London, UK", "Google") 
+data.update_person(updated_person, 0)
 for person in data.persons:
   print(person.get_fullname())
 print("........................")

@@ -15,7 +15,7 @@ class Person:
 persons = []
 
 # Function to add new person to Address Book
-def add_new_person(new_person: Person):
+def add_new_person(new_person: Person)->[Person]:
   if len(persons) == 0:
     persons.append(new_person)
   else:
@@ -28,11 +28,13 @@ def add_new_person(new_person: Person):
       else:
         high = middle
     persons.insert(low, new_person)
+  return persons
 
 # Function to delete person from Address Book 
-def delete_person(index: int):
+def delete_person(index: int)->[Person]:
   if index >= 0 and index < len(persons):
     persons.pop(index)
+  return persons
 
 # Function to search person by comparing with full name and inputed keyword
 def search_person_by_keyword(keyword: str)->[Person]:
@@ -47,3 +49,18 @@ def search_person_by_keyword(keyword: str)->[Person]:
       result.append(person)
   return result
   
+# Function to update existing person data and sorted the array again
+def update_person(person: Person, index: int)->[Person]:
+  if index >= 0 and index < len(persons):
+    persons[index] = person
+    while index - 1 >= 0 and persons[index-1].first_name.lower() > persons[index].first_name.lower():
+      temp = persons[index - 1]
+      persons[index - 1] = persons[index]
+      persons[index] = temp
+      index = index - 1
+    while index + 1 < len(persons) and persons[index + 1].first_name.lower() < persons[index].first_name.lower():
+      temp = persons[index + 1]
+      persons[index + 1] = persons[index]
+      persons[index] = temp
+      index = index + 1
+  return persons
