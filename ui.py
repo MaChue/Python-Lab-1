@@ -54,26 +54,28 @@ def show_address_book_window(persons: [data.Person], default_search_text=None):
   # Populate all the persons data that exit in the Address Book Database and show as Labels
   for i in range(len(persons)):
     e_row = i + 1
+    person = persons[i]
     e0 = Label(frame1, width=3, fg='black', text=e_row) 
     e0.grid(row=e_row, column=0) 
-    e1 = Label(frame1, width=label_width, fg='black', text=persons[i].get_fullname()) 
+    e1 = Label(frame1, width=label_width, fg='black', text=person.get_fullname()) 
     e1.grid(row=e_row, column=1) 
-    e2 = Label(frame1, width=label_width, fg='black', text=persons[i].phone) 
+    e2 = Label(frame1, width=label_width, fg='black', text=person.phone) 
     e2.grid(row=e_row, column=2) 
-    e3 = Label(frame1, width=label_width, fg='black', text=persons[i].email) 
+    e3 = Label(frame1, width=label_width, fg='black', text=person.email) 
     e3.grid(row=e_row, column=3) 
-    e4 = Label(frame1, width=label_width, fg='black', text=persons[i].company) 
+    e4 = Label(frame1, width=label_width, fg='black', text=person.company) 
     e4.grid(row=e_row, column=4) 
-    e5 = Label(frame1, width=label_width, fg='black', text=persons[i].address) 
+    e5 = Label(frame1, width=label_width, fg='black', text=person.address) 
     e5.grid(row=e_row, column=5)
     # Create a button that will perform Edit function of the selected person
-    e6 = Button(frame1, text='Edit', fg='green', bd='0', command=lambda index=i : show_add_or_edit_entry_window(root, index)) 
+    e6 = Button(frame1, text='Edit', fg='green', bd='0', command=lambda p=person : show_add_or_edit_entry_window(root, p)) 
     e6.grid(row=e_row, column=6) 
     # Create a button that will perform Delete function of the selected person
-    e7 = Button(frame1, text='Delete', fg='red', bd='0', command=lambda index=i : delete(root, index)) 
+    e7 = Button(frame1, text='Delete', fg='red', bd='0', command=lambda p=person : delete(root, p)) 
     e7.grid(row=e_row, column=7) 
   
   root.mainloop()
+##############################################################
 
 # The function that perform searching through person's name from the address book
 def search(root, keyword: str):
@@ -83,23 +85,23 @@ def search(root, keyword: str):
   root.destroy()
   # Show it again with search result data
   show_address_book_window(persons, keyword)
+##############################################################
 
 # The function that perform deleting selected persons from the address book
-def delete(root, index: int):
+def delete(root, person: data.Person):
   # Show confirmatio dialog before deleting
   msg_box = messagebox.askquestion('Confirmation','Are you sure you want to delete this contact?', icon='warning')
   if msg_box == 'yes':
     # If user click yes, delete the person from the database 
-    persons = data.delete_person(index)
+    persons = data.delete_person(person)
     # Distory the current window
     root.destroy()
     # Show again with current updated data
-    show_address_book_window(persons)        
+    show_address_book_window(persons)
+##############################################################        
 
 # The function that will show data entry popup on top of main window to perform add or edit functionalities
-def show_add_or_edit_entry_window(root, index:int=-1):
-  # Get person data from specific index
-  person = data.get_person(index)
+def show_add_or_edit_entry_window(root, person:data.Person=None):
   # Create a popup window that will display on top of main window
   popup = Toplevel(root)
   popup.geometry('300x450')
@@ -179,14 +181,12 @@ def show_add_or_edit_entry_window(root, index:int=-1):
         person.email = email.get()
         person.company = company.get()
         person.address = address.get()
-        persons = data.update_person(person, index)
+        persons = data.update_person(person)
         root.destroy()
         show_address_book_window(persons)        
       else:
         # If person is None, add new person to address book database and show main window again with updated data
-        new_person = data.Person(first_name.get(), last_name.get(), phone.get(), email.get(), address.get(), company.get()) 
-        persons = data.add_new_person(new_person)
+        persons = data.add_new_person(first_name.get(), last_name.get(), phone.get(), email.get(), address.get(), company.get()) 
         root.destroy()
         show_address_book_window(persons)
-    
-  
+##############################################################
