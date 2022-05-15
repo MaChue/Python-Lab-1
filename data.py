@@ -64,3 +64,9 @@ def update_person(person: Person, index: int)->[Person]:
       persons[index] = temp
       index = index + 1
   return persons
+
+def get_person(index: int)-> Person:
+  if index >= 0 and index < len(persons):
+    return persons[index]
+  else:
+    return None
