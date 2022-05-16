@@ -164,7 +164,7 @@ def show_add_or_edit_entry_window(root, person:data.Person=None):
   b1 = Button(frame2, text='Cancel', fg='black', bg="lightgray", bd='1', command=popup.destroy) 
   b1.grid(row=0, column=0, padx=30, pady=20)
   # Save Changes button to comfirm current data changes and, update or add person data to database 
-  b2 = Button(frame2, text='Save Changes', fg='white', bg="#848888", bd='1', command=lambda : add_or_edit_contact()) 
+  b2 = Button(frame2, text='Save Changes', fg='black', bg="lightgray", bd='1', command=lambda : add_or_edit_contact()) 
   b2.grid(row=0, column=1, padx=0, pady=20) 
 
   # The function to handle edit and add functionalities
