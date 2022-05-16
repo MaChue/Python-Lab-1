@@ -1,5 +1,5 @@
 # Address Book Application
-  The mini standalone desktop application that have been developed by using **Python programming language**, **Tkinter Python Standard GUI library** and **SQLite database**.The application include basic address book functionalities such as add new person to the address book, update existing person information, delete selected person from the address book, search persons by keywords and viewing sorted list of persons from the address book.
+  The mini standalone desktop application that has been developed by using **Python programming language**, **Tkinter Python Standard GUI library** and **SQLite database**.The application includes basic address book functionalities such as adding new person to the address book, updating existing person information, deleting selected person from the address book, searching persons by keywords, and viewing sorted list of persons from the address book.
 
 
 ## Table of Contents
@@ -23,15 +23,15 @@
     |
     |-- main.py            <- Initial starting python file of the application 
     |                         that will open application main window when user 
-    |                         run it on terminal.
+    |                         runs it on the terminal.
     |
-    |-- ui.py              <- The python module file that have implemented 
+    |-- ui.py              <- The python module file that has implemented 
     |                         all the user interface logic of the application.
     |
-    |-- data.py            <- The python module file that have implemented
-    |                         all the data related business logics such as
+    |-- data.py            <- The python module file that has implemented
+    |                         all the data related business logic such as
     |                         adding, deleting, updating, searching, sorting 
-    |                         of data list and communicating with SQLite database.
+    |                         of the data list and communicating with SQLite database.
     |
     |-- address_book.db    <- SQLite database file of the application.
     |
@@ -40,10 +40,10 @@
     |
     |-- .settings          <- Project settings file of the application.
     |
-    |-- .gitignore         <- Gitignore file that has added list of cache files 
-    |                         to ignore when commit to github.
+    |-- .gitignore         <- gitignore file that has added the list of cache files 
+    |                         to ignore when committing to github.
     |
-    |-- Images             <- Images folder stored screen-shoot images that 
+    |-- Images             <- The folder stored screenshot images that 
     |                         have been embedded inside the README.md file.
     
 
@@ -77,9 +77,9 @@
   
 ### Features and Implementation
   ##### 1. Add New Contact
-  - Add new person to Person table of **`address_book`** database.
-  - Insert new person to existing persons list by using **`binary insertion sort algorithm`**.
-  - Show sorted persons list on the main screen with newly added data.
+  - Add a new person to Person table of **`address_book`** database.
+  - Insert the new person to existing person list by using **`binary insertion sort algorithm`**.
+  - Show sorted person list on the main screen with newly added data.
 
       ![](Images/ab_initial.png)
       *Figure.1.1. Initial State of Main Screen*
@@ -91,7 +91,7 @@
       *Figure.1.3. Main Screen After Adding New Person*
   
   ##### 2. Edit Exiting Contact Data
-  - Edit selected person data and save edited data back to database.
+  - Edit selected person data and save edited data back to the database.
   - Sort existing person list by using **`insertion sort algorithm`**.
   - Show sorted and updated person list on the main screen
 
@@ -105,7 +105,7 @@
       *Figure.2.3. Main Screen After Editing Contact*
   
   ##### 3. Delete Selected Contact
-  - Delete selected person from the database and existing persons list.
+  - Delete selected person from the database and existing person list.
 
       ![](Images/ab_contact_list.png)
       *Figure.3.1. Main Screen Before Deleting*
@@ -117,7 +117,7 @@
       *Figure.3.3. Main Screen After Deleting Contact*  
 
   ##### 4. Search Contact by Keywords
-  - Search person with the keywords that input by the user by using **`linear search algorithm`**.
+  - Search person with the keywords that are input by the user by using **`linear search algorithm`**.
 
       ![](Images/ab_contact_list.png)
       *Figure.4.1. Main Screen Before Searching*
