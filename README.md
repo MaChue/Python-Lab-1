@@ -50,6 +50,7 @@
 ### How to Run the Application
   #### 1. Run on Computer
   * Install [Python 3](https://www.python.org/downloads/) in your machine.
+  * Install Tkinter **`pip3 install tk`**
   * Download the project zip file from [codio](https://codio.co.uk/mchue/python-lab-1) or from [github](https://github.com/MaChue/Python-Lab-1.git).
   * Path to project directory from the terminal application **`cd your_file_path/Python-Lab-1`**.
   * Type **`python3 main.py`** to run the Python program.
@@ -103,7 +104,6 @@
       ![](Images/ab_edit_contact3.png)
       *Figure.2.3. Main Screen After Editing Contact*
   
-
   ##### 3. Delete Selected Contact
   - Delete selected person from the database and existing persons list.
 
